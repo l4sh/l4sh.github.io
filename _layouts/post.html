@@ -1,0 +1,67 @@
+---
+layout: default
+---
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">
+      {{ page.title | escape }}
+    </h1>
+    <div class="post-meta">
+      <div class="post-date">
+        Published on:
+        <time datetime="{{ page.date | date_to_xmlschema}}">
+          {% assign date_format = site.date_format | default: "%b %d, %Y" %}
+          {{ page.date | date: date_format }}
+        </time>
+      </div>
+
+      {% if page.author %}
+      {% capture author_page_path %}author/{{ page.author }}.md{% endcapture %}
+      {% assign author_page = site.pages | where: "path", author_page_path | first %}
+
+      <div class="post-author">
+        Author:
+        {% if author_page %}
+        <a href="{{ author_page.url | relativeurl }}">
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">
+              {{ page.author }}
+            </span>
+          </span>
+        </a>
+        {% else %}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span class="p-author h-card" itemprop="name">
+            {{ page.author }}
+          </span>
+        </span>
+        {% endif%}
+      </div>
+      {% endif %}
+      {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        Tags:
+        <ul>
+          {% for tag in page.tags %}
+          <li class="post-tag">
+            <a href="{{ 'tag/' | relative_url }}{{ tag }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  {%- if site.disqus.shortname -%}
+  {%- include disqus_comments.html -%}
+  {%- endif -%}
+
+  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+</article>

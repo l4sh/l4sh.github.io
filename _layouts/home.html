@@ -1,0 +1,76 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  {{ content }}
+
+  {% if site.posts.size > 0 %}
+  <ul class="post-list">
+    {% for post in site.posts %}
+    <li>
+      {% assign date_format = site.date_format | default: "%b %d, %Y" %}
+      <h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+
+      <div class="post-meta">
+        <div class="post-date">
+          Published on:
+          <time datetime="{{ post.date | date_to_xmlschema}}">
+            {{ post.date | date: date_format }}
+          </time>
+        </div>
+
+        {% if post.author %}
+        {% capture author_page_path %}author/{{ post.author }}.md{% endcapture %}
+        {% assign author_page = site.pages | where: "path", author_page_path | first%}
+
+        <div class="post-author">
+          Author:
+          {% if author_page %}
+          <a itemprop="author" itemscope itemtype="http://schema.org/Person"
+             href="{{ author_page.url | relativeurl }}">
+            {{ post.author }}
+          </a>
+          {% else %}
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">
+              {{ post.author }}
+            </span>
+          </span>
+          {% endif%}
+
+        </div>
+        {% endif %}
+        {% if post.tags.size > 0 %}
+        <div class="post-tags">
+          Tags:
+          <ul>
+            {% for tag in post.tags %}
+            <li class="post-tag"><a href="{{ 'tag/' | relative_url }}{{ tag }}">{{ tag }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      {% if site.show_excerpts %}
+
+      {{ post.excerpt | replace: '.</p>', '...</p>' }}
+
+{% if site.show_more %}
+<p class="show-more">
+
+  <a href="{{post.url | relative_url}}">Continue reading »</a></p>
+{% endif %}
+{% endif %}
+</li>
+{% endfor %}
+</ul>
+
+{% endif %}
+
+</div>
