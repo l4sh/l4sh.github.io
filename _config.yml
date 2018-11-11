@@ -13,16 +13,13 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: l4sh.github.io
-email:
-description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+title: Luis Salazar's Blog
+email: l4sh@users.noreply.github.com
+description: Just my personal blog.
 license: >-
   <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://l4sh.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://l4sh.com"
 
 display_social: true
 twitter_username: l4sh0

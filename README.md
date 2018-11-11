@@ -1,4 +1,4 @@
- l4sh.github.io
+l4sh.com
 
 My personal blog/site.
 
