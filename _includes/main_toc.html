@@ -1,0 +1,33 @@
+<ul class="toc">
+  {% for entry in site.data.main_toc.entries %}
+    <li>
+      {% if entry.url %}
+        <span>/<a href="{{ entry.url }}">{{ entry.title }}</a></span>
+      {% else %}
+        <span>/{{ entry.title }}</span>
+      {% endif %}
+      {% if entry.collection %}
+        <ul>
+          {% assign items = site[entry.collection] | slice: 0, entry.limit %}
+          {% for item in items %}
+            <li>
+                <a href="{{ item.url }}">
+                    {% if item.date %}{{ item.date | date: "%Y-%m-%d" }} | {% endif %}
+                    {{ item.title }}
+                </a>
+            </li>
+          {% endfor %}
+          {% if entry.see_more and site[entry.collection].size > entry.limit %}
+            <li><a href="{{ entry.see_more }}">See more...</a></li>
+          {% endif %}
+        </ul>
+      {% elsif entry.entries %}
+        <ul>
+        {% for subentry in entry.entries %}
+            <li><a href="{{ subentry.url }}">{{ subentry.title }}</a></li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>

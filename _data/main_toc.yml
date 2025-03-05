@@ -1,0 +1,7 @@
+entries:
+  - collection: posts
+    title: latest-posts
+    see_more: /blog
+    limit: 10
+  - title: feed
+    url: /feed.xml

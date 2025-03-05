@@ -1,13 +1,12 @@
 ---
 layout: default
 ---
-<header>
-  <h1>{{ site.title }}</h1>
-  {%-if site.theme_config.show_description-%}
-    <p>{{ site.description }}</p>
-  {%-endif-%}
-</header>
 
-{%-include menu_item.html collection=site.data.menu.entries-%}
+<h1>{{ site.title }}</h1>
+
+<p>{{ site.description }}</p>
+
+{% include main_toc.html %}
 
 {{ content }}
+

@@ -1,15 +1,26 @@
 ---
 layout: default
 ---
-
-{%-include back_link.html-%}
-
 <article>
-  <p class="post-meta">
-    <time datetime="{{ page.date }}">{{ page.date | date: site.theme_config.date_format }}</time>
-  </p>
-  
   <h1>{{ page.title }}</h1>
+  <p class="page-meta">
+    {% if page.date %}
+      on <time class="post-date" datetime="{{ page.date }}">{{ page.date | date: "%Y%m%d"}}</time>
+    {% endif %}
 
+    {% if page.author %}
+      by <span class="post-author">{{ page.author }}</span>
+    {% else %}
+      by <span class="post-author">{{ site.author }}</span>
+    {% endif %}
+
+    {% if page.categories.size > 0 %}
+      in <span class="post-categories">{{ page.categories | join: ', ' }}</span>
+    {% endif %}
+
+    {% if page.tags.size > 0 %}
+      with tags <span class="post-tags">#{{ page.tags | join: ', #' }}</span>
+    {% endif %}
+  </p>
   {{ content }}
 </article>

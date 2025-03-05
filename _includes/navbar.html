@@ -1,0 +1,8 @@
+<nav class="navbar">
+    <ul class=""navbar-content>
+        {% for item in site.data.navbar %}
+        <li class="navbar-item"><a href="{{ item.url | relative_url }}">/{{ item.title }}</a></li>
+        {% endfor %}
+    </ul>
+</nav>
+
