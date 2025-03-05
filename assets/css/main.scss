@@ -1,5 +1,5 @@
 ---
 ---
 
-@use "simplestuff" as *;
-@use "custom" as *;
+@import "simplestuff";
+@import "custom";
