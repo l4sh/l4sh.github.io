@@ -20,7 +20,7 @@ The process is pretty straightforward and the official documentation is really g
 
 I've saved the final result in a public repository to use as a starting point for future projects. You can find it here:
 
-- https://github.com/l4sh/hugo-tailwind-starter
+- [https://github.com/l4sh/hugo-tailwind-starter](https://github.com/l4sh/hugo-tailwind-starter)
 
 ## Prerequisites
 
