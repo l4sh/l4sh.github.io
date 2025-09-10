@@ -147,6 +147,85 @@ button {
 }
 
 
+/* Retro / old UI form styles (monochrome only) */
+.retro-form {
+  display: flex;
+  justify-content: center;
+  padding: 1em 0;
+}
+
+.retro-inner {
+  background: #f4f4f4;
+  border: 3px solid #333333;
+  padding: 1rem;
+  max-width: 640px;
+  width: 100%;
+  box-shadow: 6px 6px 0 0 #333333;
+  font-family: 'Fira Code', monospace;
+}
+
+.retro-inner .form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.retro-inner label {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+  color: #333333;
+}
+
+.retro-input,
+.retro-textarea {
+  background: #FFFFFF;
+  color: #333333;
+  border: 2px solid #333333;
+  padding: 0.5rem 0.6rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  outline: none;
+  box-shadow: inset -3px -3px 0 0 #333333;
+}
+
+.retro-input:focus,
+.retro-textarea:focus {
+  border-color: #333333;
+  box-shadow: 0 0 0 3px #f4f4f4;
+}
+
+.retro-textarea {
+  resize: vertical;
+  min-height: 6rem;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.retro-button {
+  background: linear-gradient(#FFFFFF, #f4f4f4);
+  // border: 3px solid #333333;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  color: #333333;
+  box-shadow: 4px 4px 0 0 #333333;
+}
+
+.retro-button:hover {
+  background: linear-gradient(#f4f4f4, #FFFFFF);
+}
+
+.retro-button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 0 #333333;
+}
+
+
+
 pre button {
   position: absolute;
   top: 0;
